@@ -11,33 +11,67 @@ struct PokemonDetailView: View {
     
     let viewModel: PokemonDetailViewModel
     @State private var isAnimating: Bool = false
-    
+
     init(viewModel: PokemonDetailViewModel) {
         self.viewModel = viewModel
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.backgroundColor = UIColor.white
+        navBarAppearance.shadowColor = .clear
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
     }
-    
+    //    AsyncImage(url: URL(string: viewModel.imageUrl)) { image in
+    //        image.resizable()
+    //    } placeholder: {
+    //        ProgressView()
+    //    }
+    //    .zIndex(1)
+    //    .frame(width: 200, height: 200)
+
     var body: some View {
         ScrollView {
-            VStack(alignment: .center, spacing: 5) {
+            ZStack {
                 AsyncImage(url: URL(string: viewModel.imageUrl)) { image in
                     image.resizable()
                 } placeholder: {
                     ProgressView()
                 }
+                .zIndex(1)
                 .frame(width: 200, height: 200)
-                .padding(.top, 40)
-                
-                
-                Spacer()
+
+                .offset(y: -130)
+
+                VStack {
+                    HStack {
+                        Spacer()
+                    }
+                    .frame(width: .infinity, height: 150)
+                    .background(Color.white)
+                    .zIndex(-1)
+
+                    VStack {
+                        HStack(alignment: .center) {
+                            Spacer()
+                            VStack(alignment: .leading, spacing: 20) {
+                                Text("體重：6.9 KG")
+                                Text("身高：70 CM")
+                                Text("屬性：草系 毒系")
+                                Text("生長速度：中至慢")
+                                Text("居住地：草地")
+                                Text(viewModel.flavorText)
+                            }
+                            Spacer()
+                        }
+                        .padding(.top, 80)
+                    }
+                    .background(Color.gray.clipShape(CustomShape()))
+                    .padding(.top, -40)
+                    .zIndex(-1)
+                }
             }
-            .padding()
-            
-            HStack {
-                Text("Hello World")
-            }
-            .padding(.top, -40)
-            .background(Color.blue)
         }
+        .background(Color.gray)
+        .ignoresSafeArea(edges: .bottom)
         .navigationBarTitleDisplayMode(.large)
         .navigationTitle(viewModel.name)
     }
@@ -45,6 +79,7 @@ struct PokemonDetailView: View {
 
 struct PokemonDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonDetailView(viewModel: PokemonDetailViewModel(id: 1, name: "Pokemon", imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"))
+        PokemonDetailView(viewModel: PokemonDetailViewModel(id: 1, name: "Pokemon", imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"))
+            .previewDevice("iPhone 13")
     }
 }

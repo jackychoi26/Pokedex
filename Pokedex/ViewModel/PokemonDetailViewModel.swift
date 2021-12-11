@@ -18,4 +18,5 @@ class PokemonDetailViewModel: ObservableObject {
     let id: Int
     let name: String
     let imageUrl: String
+    let flavorText: String = "背上的種子裡存著很多營養，\n所以就算好幾天不吃東西\n也能活得好好的！"
 }
