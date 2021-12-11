@@ -62,7 +62,7 @@ struct PokemonDetailView: View {
                             }
                             Spacer()
                         }
-                        .padding(.top, 80)
+                        .padding(.top, 120)
                     }
                     .background(Color.gray.clipShape(CustomShape()))
                     .padding(.top, -40)
