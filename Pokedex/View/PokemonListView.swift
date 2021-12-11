@@ -34,7 +34,8 @@ struct PokemonListView: View {
                     .frame(width: 80, height: 80, alignment: .center)
                     .onAppear {
                         Task {
-                            pokemonOffset += 20
+                            // TODO: set the offset somewhere as a constant
+                            pokemonOffset += 30
                             await viewModel.getPokemons(offset: pokemonOffset)
                         }
                     }
