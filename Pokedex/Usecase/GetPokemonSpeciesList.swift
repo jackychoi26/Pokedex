@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Usecase to get the pokemon species list
 struct GetPokemonSpeciesList {
 
     private let pokemonSpeciesListWebservice: PokemonSpeciesListWebservice
@@ -16,7 +17,6 @@ struct GetPokemonSpeciesList {
     }
 
     func execute(offset: Int = 0) async -> PokemonSpeciesList? {
-        let pokemonList = try? await pokemonSpeciesListWebservice.performRequest(offset: offset)
-        return pokemonList
+        try? await pokemonSpeciesListWebservice.performRequest(offset: offset)
     }
 }

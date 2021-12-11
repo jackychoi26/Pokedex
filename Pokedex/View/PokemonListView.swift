@@ -16,7 +16,7 @@ struct PokemonListView: View {
         List {
             ForEach((viewModel.pokemons), id: \.self) {
                 pokemon in
-                Text("\(pokemon.name)")
+                Text("\(pokemon.nameTc)")
             }
 
             Text("End")
