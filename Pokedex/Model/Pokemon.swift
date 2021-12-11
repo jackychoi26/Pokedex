@@ -10,6 +10,7 @@ import Foundation
 struct Pokemon: Hashable {
     
     let id: Int
+    let flavorText: String
     let nameEn: String
     let nameTc: String
     let nameSc: String
