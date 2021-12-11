@@ -23,7 +23,7 @@ struct PokemonListView: View {
                 .onAppear {
                     Task {
                         pokemonOffset += 20
-                        await viewModel.getMorePokemons(offset: pokemonOffset)
+                        await viewModel.getPokemons(offset: pokemonOffset)
                     }
                 }
         }

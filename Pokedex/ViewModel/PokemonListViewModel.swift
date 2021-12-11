@@ -10,22 +10,16 @@ import Foundation
 @MainActor
 class PokemonListViewModel: ObservableObject {
 
-    private let getPokemonList: GetPokemonList
-    @Published private(set) var pokemons: [Pokemon] = []
+    private let getPokemonSpeciesList: GetPokemonSpeciesList
+    @Published private(set) var pokemons: [PokemonSpecies] = []
 
-    init(getPokemonList: GetPokemonList = .init()) {
-        self.getPokemonList = getPokemonList
+    init(getPokemonSpeciesList: GetPokemonSpeciesList = .init()) {
+        self.getPokemonSpeciesList = getPokemonSpeciesList
     }
 
     func getPokemons(offset: Int = 0) async {
-        let pokemonList = await getPokemonList.execute()
+        let pokemonList = await getPokemonSpeciesList.execute(offset: offset)
         guard let pokemons = pokemonList?.results else { return }
         self.pokemons = pokemons
-    }
-
-    func getMorePokemons(offset: Int) async {
-        let pokemonList = await getPokemonList.execute(offset: offset)
-        guard let pokemons = pokemonList?.results else { return }
-        self.pokemons += pokemons
     }
 }
