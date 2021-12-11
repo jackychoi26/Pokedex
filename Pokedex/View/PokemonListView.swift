@@ -11,25 +11,36 @@ struct PokemonListView: View {
 
     @StateObject private var viewModel = PokemonListViewModel()
     @State var pokemonOffset = 0
-
+    
+    private let columnSpacing: CGFloat = 10
+    private let rowSpacing: CGFloat = 10
+    
+    private var gridLayout: [GridItem] {
+        return Array(repeating: GridItem(.flexible(), spacing: rowSpacing), count: 2)
+    }
+    
     var body: some View {
-        List {
-            ForEach((viewModel.pokemons), id: \.self) {
-                pokemon in
-                Text("\(pokemon.nameTc)")
-            }
-
-            Text("End")
-                .onAppear {
-                    Task {
-                        pokemonOffset += 20
-                        await viewModel.getPokemons(offset: pokemonOffset)
-                    }
+        ScrollView {
+            LazyVGrid(columns: gridLayout, spacing: 15) {
+                ForEach((viewModel.pokemons), id: \.self) {
+                    pokemon in
+                    PokemonView(name: pokemon.nameTc, imageUrl: pokemon.imageUrl)
                 }
+                
+                ProgressView()
+                    .frame(width: 80, height: 80, alignment: .center)
+                    .onAppear {
+                        Task {
+                            pokemonOffset += 20
+                            await viewModel.getPokemons(offset: pokemonOffset)
+                        }
+                    }
+            }
+            .task {
+                await viewModel.getPokemons()
+            }
         }
-        .task {
-            await viewModel.getPokemons()
-        }
+        .navigationBarHidden(true)
     }
 }
 

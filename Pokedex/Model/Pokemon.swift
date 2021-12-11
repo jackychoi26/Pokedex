@@ -14,4 +14,8 @@ struct Pokemon: Hashable {
     let nameTc: String
     let nameSc: String
     let nameJp: String
+    
+    var imageUrl: String {
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id).png"
+    }
 }

@@ -29,6 +29,7 @@
 		D8D90D24276482CF00F73E59 /* PokemonSpeciesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D90D23276482CF00F73E59 /* PokemonSpeciesDetail.swift */; };
 		D8D90D262764893A00F73E59 /* Sequence+asyncMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D90D252764893A00F73E59 /* Sequence+asyncMap.swift */; };
 		D8D90D282764912300F73E59 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D90D272764912300F73E59 /* Pokemon.swift */; };
+		D8D90D2C27649A6500F73E59 /* PokemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D90D2B27649A6500F73E59 /* PokemonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		D8D90D23276482CF00F73E59 /* PokemonSpeciesDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSpeciesDetail.swift; sourceTree = "<group>"; };
 		D8D90D252764893A00F73E59 /* Sequence+asyncMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+asyncMap.swift"; sourceTree = "<group>"; };
 		D8D90D272764912300F73E59 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		D8D90D2B27649A6500F73E59 /* PokemonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				3821E796275F48BF005F4C89 /* PokemonListView.swift */,
+				D8D90D2B27649A6500F73E59 /* PokemonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				3821E7AB275F56BD005F4C89 /* PokemonListViewModel.swift in Sources */,
 				D89558C927525CFD00FCE47D /* Persistence.swift in Sources */,
 				D89558C227525CFC00FCE47D /* ContentView.swift in Sources */,
+				D8D90D2C27649A6500F73E59 /* PokemonView.swift in Sources */,
 				3821E7A3275F531E005F4C89 /* PokemonSpecies.swift in Sources */,
 				3821E7A1275F523A005F4C89 /* PokemonSpeciesList.swift in Sources */,
 				3821E79B275F4CAD005F4C89 /* PokemonSpeciesListWebservice.swift in Sources */,
