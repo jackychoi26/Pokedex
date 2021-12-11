@@ -10,5 +10,5 @@ import Foundation
 struct PokemonSpeciesListWebConfiguration {
 
     let baseUrl = "https://pokeapi.co/api/v2/pokemon-species/"
-    let limit = 20
+    let limit = 30
 }

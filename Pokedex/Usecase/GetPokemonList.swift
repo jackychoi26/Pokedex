@@ -31,6 +31,7 @@ struct GetPokemonList {
         pokemonSpeciesDetails?.forEach {
             pokemon in
             
+            var flavorText: String = ""
             var nameEn: String = ""
             var nameTc: String = ""
             var nameSc: String = ""
@@ -51,6 +52,7 @@ struct GetPokemonList {
             
             let newPokemon = Pokemon(
                 id: pokemon.id,
+                flavorText: flavorText,
                 nameEn: nameEn,
                 nameTc: nameTc,
                 nameSc: nameSc,

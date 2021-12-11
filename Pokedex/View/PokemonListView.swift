@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PokemonListView: View {
-
+    
     @StateObject private var viewModel = PokemonListViewModel()
     @State var pokemonOffset = 0
     
@@ -24,7 +24,10 @@ struct PokemonListView: View {
             LazyVGrid(columns: gridLayout, spacing: 15) {
                 ForEach((viewModel.pokemons), id: \.self) {
                     pokemon in
-                    PokemonView(name: pokemon.nameTc, imageUrl: pokemon.imageUrl)
+                    NavigationLink(destination: NavigationLazyView(PokemonDetailView(viewModel: PokemonDetailViewModel(id: pokemon.id, name: pokemon.nameTc, imageUrl: pokemon.imageUrl)))) {
+                        PokemonView(name: pokemon.nameTc, imageUrl: pokemon.imageUrl)
+                            .foregroundColor(.black)
+                    }
                 }
                 
                 ProgressView()
